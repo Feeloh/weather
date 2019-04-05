@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Nairobi Weather Forecast</title>
+	<script type="application/x-javascript">
+	weatherWebService();
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+		function weatherWebService() {
+			let divContents= '';
+			let townContents = '';
+			let canvasContent = '';
+			let canvasDiv = '';
+			let cities = [
+				'nairobi',
+				'nanyuki',
+				'mombasa',
+				'kisumu'
+			];
+			count = 0;
+			for(var i = 0; i < cities.length; i ++)
+			{
+				let http = new XMLHttpRequest();
+				http.onreadystatechange = function () 
+				{
+					if (this.readyState == 4 && this.status == 200) 
+					{
+						
+						let response = JSON.parse(this.responseText);
+						let mainForcast = response.weather[0].main;
+						let temparature = response.main.temp;
+						let humidity = response.main.humidity;
+						let city = response.name;
+						divContents += '<h2>'+city+'</h2><p>'+mainForcast+'</p><h3>'+temparature+'<span>°c</span></h3>';
+						townContents += '<h3>'+city+'</h3><p>'+mainForcast+'</p><h3>'+temparature+'<span>°c</span></h3>';
+						townContents += '<div class="w3l_main_grid_left_grid1_right"><canvas id="partly-cloudy-day" width="45" height="45"></canvas></div><div class="clear"> </div>';
+						count ++;
+						if(count == 1)
+						{
+						document.getElementById("fefe").innerHTML = divContents;
+						}
+						else
+						{
+						document.getElementById("test").innerHTML = townContents;
+						}
+					}					
+				
+				}					
+				http.open("GET","http://api.openweathermap.org/data/2.5/weather?q="+cities[i]+",ke&APPID=83416958429879bd5fb4ee5dad8da3fe&units=metric",true);
+				http.send();
+			}
+		}
+	</script>
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/easy-responsive-tabs.css " />
+	<link href="stylesheet/googleapi.css" rel="stylesheet" type="text/css">
+	<link href="stylesheet/googleapi2.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onload="startTime()">
+	<div class="main">
+		<h1>Nanyuki Weather</h1>
+		<div class="w3_agile_main_grids">
+			<div class="w3layouts_main_grid">
+				<div class="w3layouts_main_grid_left" id="fefe">
+				</div>
+				<br>
+				<div class="w3layouts_main_grid_right" id="weatherImage">
+					<canvas id = "cloudy" width="70" height="70"> </canvas>
+					<div id="w3time"></div>
+					<div class="w3layouts_date_year">
+						<!-- date -->
+						<script type="text/javascript">
+							var mydate = new Date()
+							var year = mydate.getYear()
+							if (year < 1000)
+								year += 1900
+							var day = mydate.getDay()
+							var month = mydate.getMonth()
+							var daym = mydate.getDate()
+							if (daym < 10)
+								daym = "0" + daym
+							var dayarray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+							var montharray = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September",
+								"October", "November", "December")
+							document.write("" + dayarray[day] + ", " + montharray[month] + " " + daym + ", " + year + "")
+						</script>
+						<!-- //date -->
+					</div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+
+			<div class="agileits_w3layouts_main_grid">
+				<div class="agile_main_grid_left">
+					<div class="wthree_main_grid_left_grid" >
+						<div class="w3ls_main_grid_left_grid1" id="test">
+							
+						</div>								
+					</div>
+				</div>
+				<div class="w3_agileits_main_grid_right" style="height:500px">
+					<div class="agileinfo_main_grid_right_grid">
+						<div id="parentHorizontalTab">
+							<ul class="resp-tabs-list hor_1">
+								<li>Today</li>
+								<li>Week</li>
+							</ul>
+							<div class="resp-tabs-container hor_1">
+								<div class="w3_agileits_tabs">
+									<div class="w3_main_grid_right_grid1">
+										<div class="w3_main_grid_right_grid1_left">
+											<p>10 AM</p>
+										</div>
+										<div class="w3_main_grid_right_grid1_right">
+											<p>15<i>°c</i><span>Cloudy</span></p>
+										</div>
+										<div class="clear"> </div>
+									</div>
+									<br>
+									<div class="w3_main_grid_right_grid1">
+										<div class="w3_main_grid_right_grid1_left">
+											<p>11 AM</p>
+										</div>
+										<div class="w3_main_grid_right_grid1_right">
+											<p>16<i>°c</i><span>Clear</span></p>
+										</div>
+										<div class="clear"> </div>
+									</div>
+									<br>
+									<div class="w3_main_grid_right_grid1">
+										<div class="w3_main_grid_right_grid1_left">
+											<p>12 PM</p>
+										</div>
+										<div class="w3_main_grid_right_grid1_right">
+											<p>18<i>°c</i><span>Clear</span></p>
+										</div>
+										<div class="clear"> </div>
+									</div>
+									<br>
+									<div class="w3_main_grid_right_grid1">
+										<div class="w3_main_grid_right_grid1_left">
+											<p>2 PM</p>
+										</div>
+										<div class="w3_main_grid_right_grid1_right">
+											<p>12<i>°c</i><span>Partly Cloudy</span></p>
+										</div>
+										<div class="clear"> </div>
+									</div>
+								</div>
+								<div class="w3_agileits_tabs">
+									<div class="w3_main_grid_right_grid1">
+										<div class="w3_main_grid_right_grid1_left">
+											<p>Monday</p>
+										</div>
+										<div class="w3_main_grid_right_grid1_right">
+											<p>14<i>°c</i><span>Clear</span></p>
+										</div>
+										<div class="clear"> </div>
+									</div>
+									<br>
+									<div class="w3_main_grid_right_grid1">
+										<div class="w3_main_grid_right_grid1_left">
+											<p>Tuesday</p>
+										</div>
+										<div class="w3_main_grid_right_grid1_right">
+											<p>16<i>°c</i><span>Cloudy</span></p>
+										</div>
+										<div class="clear"> </div>
+									</div>
+									<br>
+									<div class="w3_main_grid_right_grid1">
+										<div class="w3_main_grid_right_grid1_left">
+											<p>Wednesday</p>
+										</div>
+										<div class="w3_main_grid_right_grid1_right">
+											<p>11<i>°c</i><span>Rainy</span></p>
+										</div>
+										<div class="clear"> </div>
+									</div>
+									<br>
+									<div class="w3_main_grid_right_grid1">
+										<div class="w3_main_grid_right_grid1_left">
+											<p>Thursday</p>
+										</div>
+										<div class="w3_main_grid_right_grid1_right">
+											<p>18<i>°c</i><span>Sunny</span></p>
+										</div>
+										<div class="clear"> </div>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clear"> </div>
+			</div>
+		</div>
+		<div class="agileits_copyright">
+			<p>© 2017 Aridity Weather Widget. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+		</div>
+	</div>
+	<!-- sky-icons -->
+	<script src="js/skycons.js"></script>
+	<script>
+		window.onload = function () {
+			appendweather();
+		}
+
+		function appendweather() {
+
+		}
+	</script>
+	<script>
+		var icons = new Skycons({
+				"color": "#999999"
+			}),
+			list = [
+				"sleet"
+			],
+			i;
+
+		for (i = list.length; i--;)
+			icons.set(list[i], list[i]);
+
+		icons.play();
+	</script>
+	<script>
+		var icons = new Skycons({
+				"color": "#f5f5f5"
+			}),
+			list = [
+				"clear-night", "partly-cloudy-day",
+				"partly-cloudy-night", "cloudy", "rain", "clear-day", "snow", "wind",
+				"fog"
+			],
+			i;
+
+		for (i = list.length; i--;)
+			icons.set(list[i], list[i]);
+
+		icons.play();
+	</script>
+	<!-- //sky-icons -->
+	<!-- tabs -->
+	<script src="js/easyResponsiveTabs.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			//Horizontal Tab
+			$('#parentHorizontalTab').easyResponsiveTabs({
+				type: 'default', //Types: default, vertical, accordion
+				width: 'auto', //auto or any width like 600px
+				fit: true, // 100% fit in a container
+				tabidentify: 'hor_1', // The tab groups identifier
+				activate: function (event) { // Callback function if tab is switched
+					var $tab = $(this);
+					var $info = $('#nested-tabInfo');
+					var $name = $('span', $info);
+					$name.text($tab.text());
+					$info.show();
+				}
+			});
+		});
+	</script>
+	<!-- //tabs -->
+	<!-- time -->
+	<script>
+		function startTime() {
+
+			var today = new Date();
+			var h = today.getHours();
+			var m = today.getMinutes();
+			var s = today.getSeconds();
+			m = checkTime(m);
+			s = checkTime(s);
+			document.getElementById('w3time').innerHTML =
+				h + ":" + m + ":" + s;
+			var t = setTimeout(startTime, 500);
+		}
+
+		function checkTime(i) {
+			if (i < 10) {
+				i = "0" + i
+			}; // add zero in front of numbers < 10
+			return i;
+		}
+	</script>
+	<!-- //time -->
+</body>
+
+</html>
