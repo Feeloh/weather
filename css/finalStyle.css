@@ -1,0 +1,51 @@
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    border: 3px solid green;
+    width: 50%;
+    height: 80%;
+    background: url(../images/1.jpg);
+    background-size: cover;
+}
+
+#main{ 
+    text-align: center;
+    border-bottom: 3px solid green;
+}
+#todayWeather{ 
+    border-right: 3px solid green;
+}
+.col{
+    text-align: center;
+    height: 100%;
+}
+
+.wrapper {
+    text-align: right;
+    position: absolute;
+    bottom: 10px;
+    width: 50%;
+}
+
+.button {
+    position: absolute;
+}
+
+#city, #buttonCity{
+	position:absolute;
+   top:0;
+   right:0;
+}
+
+#city {
+    width: 20%;
+}
+
+
+body {
+    background: url(../images/test.jpg);
+  }
