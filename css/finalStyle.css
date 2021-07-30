@@ -1,51 +1,51 @@
 .card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    border: 3px solid green;
-    width: 50%;
-    height: 80%;
-    background: url(../images/1.jpg);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
     background-size: cover;
+    margin-left: 10%;
 }
-
 #main{ 
     text-align: center;
-    border-bottom: 3px solid green;
+    color: green;
 }
 #todayWeather{ 
-    border-right: 3px solid green;
+    width: 300px;
+    color: green;
 }
 .col{
     text-align: center;
     height: 100%;
 }
-
-.wrapper {
-    text-align: right;
-    position: absolute;
-    bottom: 10px;
-    width: 50%;
+#wrapper {
+    width: 20%;
+    margin-top: 2%;
 }
-
 .button {
     position: absolute;
 }
-
-#city, #buttonCity{
-	position:absolute;
-   top:0;
-   right:0;
+#search {
+    width: 20%
 }
-
-#city {
-    width: 20%;
+#header {
+    margin-top: 5%;
+    margin-bottom: 1%;
+    width: 80%;
+    overflow: auto;
 }
-
-
+#floatRight {
+    text-align: right;
+}
+#weekly {
+    height: 40%;
+    border-top: 3px solid rgb(238, 240, 241);
+    color: green;
+}
+#mainCard {
+    height: 70vh;
+}
 body {
     background: url(../images/test.jpg);
-  }
+}

@@ -2,34 +2,70 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/weather/css/weather-icons.min.css">
     <link href="css/finalStyle.css" rel="stylesheet" type="text/css" />
     <script src="js/source.js"></script>
+
     <title>Weather Forecast</title>
-    <h1 style="color: aliceblue; text-align: center;">Kenya Weather Forecast</h1>
-    <input type="search" id="city" class="form-control" placeholder="Enter any City"><button type="button"
-        class="btn btn-success" id="buttonCity" onclick="searchCity()">Search</button>
+   
 </head>
 
 <body onload="kenyaCityForecast()">
-    <div class="card" style="color: aliceblue;">
-        <div class="card-body" id="main">
-            Main
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col" id="todayWeather">
-                    Today's Forecast
-                </div>
-                <div class="col" id="weeklyWeather">
-                    Weekly Forecast
+    <div class="container-fluid" id="header">
+        <div class="row">
+            <div class="col-sm-8" id="floatRight">
+                <h1 style="color: aliceblue;">Kenya Weather Forecast</h1>
+            </div> 
+            <div class="col-sm-4" id="floatRight">
+                <div class="input-group">
+                    <input class="form-control" placeholder="Enter any City" >
+                    <button type="button" class="btn btn-success" onclick="searchCity()">Search</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="wrapper">
-        <button type="button" class="btn btn-success" onclick="kenyaCityForecast(1) " id="but">Toggle Cities</button>
-    </div></br>
+    <div class="card" id="mainCard">
+        <div class="card-body" id="main">
+            Main
+        </div>
+        <div class="card-body" id="weekly">
+            <div class="row">
+                <div class="col" id="todayWeather">
+                    <i class="wi wi-night-sleet"></i>
+                </div>
+                <div class="col" id="todayWeather">
+                    <i class="wi wi-day-sunny"></i>
+                </div>
+                <div class="col" id="todayWeather">
+                    <i class="wi wi-cloud"></i>
+                </div>
+                <div class="col" id="todayWeather">
+                    <i class="wi wi-night-alt-showers"></i>
+                </div>
+                <div class="col" id="todayWeather">
+                    <i class="wi wi-night-alt-sprinkle"></i>
+                </div>
+                <div class="col" id="todayWeather">
+                    <i class="wi wi-day-sunny"></i>
+                </div>
+                <div class="col" id="todayWeather">
+                    <i class="wi wi-day-storm-showers"></i>
+                </div>
+            </div>
+        </div>
+        <div class="card-body" id="weekly">
+            Weekly
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <button type="button" id="wrapper" class="btn btn-success" onclick="kenyaCityForecast(1) " id="but">Toggle Cities</button>
+        </div>
+    </div>
 </body>
 <footer>
 </footer>
