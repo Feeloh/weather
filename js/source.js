@@ -81,7 +81,9 @@ function kenyaCityForecast(j) {
                 citiesForecast.population = response?.city?.population;
 
                 let todaysWeatherDisplay = '';
-                let weeklysWeatherDisplay = '';
+                let weekDay = '';
+                let weekWeather = '';
+                let weekTemp = '';
 
                 for (let p = 0; p < todayWeather.length; p++) {
 
@@ -93,22 +95,39 @@ function kenyaCityForecast(j) {
                             'Saturday'
                         ];
                         const dayOfWeek = days[a.getDay()];
-                        const weeklyWeather = todayWeather[p]?.weather[0]?.main;
+                        let weeklyWeather = todayWeather[p]?.weather[0]?.main;
                         const weeklyTemp = todayWeather[p].main.feels_like;
-                        weeklysWeatherDisplay += dayOfWeek + "</br>" + "Forecast: " + weeklyWeather + "</br>" +
-                            "Temp: " + weeklyTemp + "</br></br>";
+
+                        if(weeklyWeather === "Clouds") {
+                            weeklyWeather = "cloud";
+                        }
+
+                        weekDay +=      dayOfWeek  + "</p>";
+                        weekWeather +=  `<i class="wi wi-${weeklyWeather.toLowerCase()}"></i></p>`;
+                        weekTemp +=     weeklyTemp + "<span>°</span></p>";
+
+                        document.getElementById("first").innerHTML = weekDay;
+                        document.getElementById("second").innerHTML = weekWeather;
+                        document.getElementById("third").innerHTML = weekTemp;
+
+                        console.log(weekWeather, 'my data');
                     }
 
                 }
 
                 for (let k = 0; k < 7; k++) {
                     const time = todayWeather[k].dt_txt.substring(11);
-                    const mainForecast = todayWeather[k].weather[0].main;
-                    const mainTemp = todayWeather[k].main.temp;
-                    todaysWeatherDisplay += time + " " + mainForecast + " " + mainTemp +
-                        '<span>°c</span></br></br></br>';
+                    let mainForecast = todayWeather[k].weather[0].main;
+                    const mainTemp = todayWeather[k].main.temp + "<span>°</span>";
+
+                    if(mainForecast === "Clouds") {
+                        mainForecast = "cloud";
+                    }
+
+                    todaysWeatherDisplay = time + "</p>" + `<i class="wi wi-${mainForecast}"></i>` + "</p>" + mainTemp + "</p>";
+                    document.getElementById(`${k}`).innerHTML = todaysWeatherDisplay;
                 }
-                    
+
                 citiesForecast.weekly = weeklysWeatherDisplay;
                 citiesForecast.todayWeather = todaysWeatherDisplay;
                 count++;
