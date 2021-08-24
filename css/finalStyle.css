@@ -42,10 +42,22 @@
     height: 40%;
     border-top: 3px solid rgb(238, 240, 241);
     color: green;
+    width: 80%;
 }
 #mainCard {
     height: 70vh;
+    color: green;
 }
 body {
     background: url(../images/test.jpg);
+}
+#daily {
+    height: 40%;
+    border-top: 3px solid rgb(238, 240, 241);
+    color: green;
+    width: 80%;
+}
+.progress {
+    margin-left: 10%;
+    width: 80%;
 }

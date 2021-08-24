@@ -22,48 +22,56 @@
             </div> 
             <div class="col-sm-4" id="floatRight">
                 <div class="input-group">
-                    <input class="form-control" placeholder="Enter any City" >
-                    <button type="button" class="btn btn-success" onclick="searchCity()">Search</button>
+                    <input class="form-control" id="cityPlaceholder" placeholder="Enter any City" >
+                    <button type="button" class="btn btn-success" onclick="kenyaCityForecast()">Search</button>
                 </div>
             </div>
         </div>
     </div>
+    <div class="progress" id="showProgress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" id="progress"></div>
+    </div>
     <div class="card" id="mainCard">
-        <div class="card-body" id="main">
-            Main
+        <div class="card-body" id="cityMain">
         </div>
-        <div class="card-body" id="weekly">
+        <div class="card-body" id="populationMain">
+        </div>
+        <div class="card-body" id="cityMain">
+            Today
+        </div>
+        <div class="card-body" id="daily">
             <div class="row">
-                <div class="col" id="todayWeather">
+                <div class="col" id="0">
                     <i class="wi wi-night-sleet"></i>
                 </div>
-                <div class="col" id="todayWeather">
+                <div class="col" id="1">
                     <i class="wi wi-day-sunny"></i>
                 </div>
-                <div class="col" id="todayWeather">
+                <div class="col" id="2">
                     <i class="wi wi-cloud"></i>
                 </div>
-                <div class="col" id="todayWeather">
+                <div class="col" id="3">
                     <i class="wi wi-night-alt-showers"></i>
                 </div>
-                <div class="col" id="todayWeather">
+                <div class="col" id="4">
                     <i class="wi wi-night-alt-sprinkle"></i>
                 </div>
-                <div class="col" id="todayWeather">
+                <div class="col" id="5">
                     <i class="wi wi-day-sunny"></i>
                 </div>
-                <div class="col" id="todayWeather">
+                <div class="col" id="6">
                     <i class="wi wi-day-storm-showers"></i>
                 </div>
             </div>
         </div>
         <div class="card-body" id="weekly">
-            Weekly
-        </div>
-    </div>
-    <div class="container">
-        <div class="row justify-content-md-center">
-            <button type="button" id="wrapper" class="btn btn-success" onclick="kenyaCityForecast(1) " id="but">Toggle Cities</button>
+            <div class="container">
+                <div class="row">
+                    <div class="col" id="first"></div>
+                    <div class="col" id="second"></div>
+                    <div class="col" id="third"></div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
