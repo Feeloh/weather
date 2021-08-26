@@ -89,7 +89,7 @@ function kenyaCityForecast() {
     }
 
     http.open("GET", "http://api.openweathermap.org/data/2.5/forecast?q=" + city +
-        ",ke&APPID=83416958429879bd5fb4ee5dad8da3fe&units=metric", true);
+        ",&APPID=83416958429879bd5fb4ee5dad8da3fe&units=metric", true);
     http.send();
     http.onerror = function () {
         document.getElementById("progress").style.width="100%";
